@@ -7,3 +7,51 @@
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
 }
+
+a {
+  transition: all 0.25s;
+}
+
+// Colors
+:root {
+  --primary: #2f4858;
+  --secondary: #33658a;
+  --tertiary: #86bbd8;
+  --accent-1: #f6ae2d;
+  --accent-2: #f26419;
+  --white: #ffffff;
+  --black: #222222;
+}
+
+@mixin hover() {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  > main {
+    flex-grow: 1;
+  }
+
+  > footer {
+    background-color: var(--primary);
+    color: var(--white);
+    font-size: 12px;
+    text-align: center;
+    padding: 10px 20px;
+
+    a {
+      color: var(--white);
+      @include hover {
+        color: var(--accent-1);
+      }
+    }
+  }
+}
