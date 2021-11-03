@@ -99,13 +99,13 @@ body>svg {
 
 .game-board__square {
   background-color: var(--primary);
-  align-items: center;
   aspect-ratio: 1;
   padding: 0.3125rem;
 }
 
 .game-board__square svg {
   transition: all 0.5s;
+  display: block;
 }
 
 .game-board__square .icon-x {

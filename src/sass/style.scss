@@ -103,7 +103,6 @@ body > svg {
   &__square {
     //   background-color: var(--primary);
     background-color: var(--primary);
-    align-items: center;
     aspect-ratio: 1;
     padding: 5px;
 
@@ -113,6 +112,9 @@ body > svg {
 
     svg {
       transition: all 0.5s;
+      // width: calc(100% - 10px);
+      // height: calc(100% - 10px);
+      display: block;
     }
 
     .icon-x {
