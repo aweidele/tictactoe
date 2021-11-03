@@ -133,6 +133,13 @@ body>svg {
 .game-board__square svg {
   transition: all 0.5s;
   display: block;
+  transform: scale(0.1);
+  opacity: 0;
+}
+
+.game-board__square.a svg {
+  transform: scale(1);
+  opacity: 1;
 }
 
 .game-board__square .icon-x {
@@ -162,7 +169,7 @@ body>svg {
   margin-bottom: 0.4em;
 }
 
-.game-result button {
+.btn {
   background-color: var(--tertiary);
   color: var(--white);
   padding: 0.625rem 1.875rem;

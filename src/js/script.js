@@ -1,6 +1,7 @@
 const squares = document.querySelectorAll(".game-board__square");
 const result = document.querySelector(".game-result");
 const resultMessage = document.querySelector(".game-result__message");
+const resetButton = document.querySelector(".game-reset");
 
 const winningCombos = [
   [0, 1, 2],
@@ -22,6 +23,17 @@ const winningCombos = [
 
 class Game {
   constructor() {
+    this._initGame();
+    squares.forEach((sq, i) => {
+      sq.dataset.sq = i;
+      sq.addEventListener("click", this._squareClickHandler.bind(this));
+    });
+
+    resetButton.addEventListener("click", this._initGame.bind(this));
+  }
+
+  _initGame() {
+    console.log("initgame");
     this.currentPlayer = "x";
     this.gameStatus = true;
     this.players = {
@@ -37,13 +49,16 @@ class Game {
     this.moves = 0;
 
     squares.forEach((sq, i) => {
-      sq.dataset.sq = i;
-      sq.addEventListener("click", this._squareClickHandler.bind(this));
+      sq.classList.remove("a");
+      setTimeout(() => (sq.innerHTML = ""), 600);
+      sq.dataset.value = "";
     });
+
+    result.classList.remove("game-over");
+    this._changePlayer();
   }
 
   _changePlayer() {
-    this.currentPlayer = this.currentPlayer === "x" ? "o" : "x";
     const pl = document.querySelectorAll(".game__status div");
     pl.forEach((pl) => pl.classList.remove("active"));
     pl[this.currentPlayer === "x" ? 0 : 1].classList.add("active");
@@ -61,6 +76,7 @@ class Game {
         break;
       }
     }
+    this.currentPlayer = this.currentPlayer === "x" ? "o" : "x";
     this._changePlayer();
   }
 
@@ -77,9 +93,11 @@ class Game {
     if (!this.gameStatus) return;
 
     const sq = e.target.closest(".game-board__square");
+    console.log(sq);
     if (sq.dataset.value) return;
 
     sq.innerHTML = `<svg class="icon-${this.currentPlayer}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150"><use href="#icon-${this.currentPlayer}" />`;
+    setTimeout(() => sq.classList.add("a"), 50);
     sq.dataset.value = this.currentPlayer;
     this.players[this.currentPlayer].moves.push(Number(sq.dataset.sq));
     this.moves++;
