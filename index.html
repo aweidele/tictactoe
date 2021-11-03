@@ -12,11 +12,30 @@
     <script defer src="js/site.js"></script>
   </head>
   <body>
+    <svg id="icon-x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 164"><polygon points="163.143 29.142 134.857 0.858 82 53.715 29.142 0.858 0.858 29.142 53.715 82 0.858 134.857 29.142 163.143 82 110.285 134.857 163.143 163.143 134.857 110.285 82 163.143 29.142"/></g></svg>
+    <svg id="icon-o" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 164"><path d="M82,40A42,42,0,1,1,40,82,42.0477,42.0477,0,0,1,82,40M82,0a82,82,0,1,0,82,82A82,82,0,0,0,82,0Z"/></svg>
     <div class="wrapper">
       <header>
         <h1>Tic Tac Toe!</h1>
       </header>
-      <main></main>
+      <main>
+        <div class="game">
+          <div>Player 1/Player2</div>
+          <div class="game-board" id="board">
+            <div class="game-board__grid">
+              <div class="game-board__square"></div>
+              <div class="game-board__square"></div>
+              <div class="game-board__square"></div>
+              <div class="game-board__square"></div>
+              <div class="game-board__square"></div>
+              <div class="game-board__square"></div>
+              <div class="game-board__square"></div>
+              <div class="game-board__square"></div>
+              <div class="game-board__square"></div>
+            </div>
+          </div>
+        </div>
+      </main>
       <footer>
         ©2021 Aaron Weidele.
         <a href="https://github.com/aweidele/tictactoe"
