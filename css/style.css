@@ -35,7 +35,7 @@ h1 {
   margin: 0.625rem 0;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  font-size: 4rem;
+  font-size: 2.625rem;
   color: var(--secondary);
 }
 
@@ -126,15 +126,26 @@ body>svg {
 
 .game-board__square {
   background-color: var(--primary);
-  aspect-ratio: 1;
-  padding: 0.3125rem;
+  position: relative;
+}
+
+.game-board__square:after {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-bottom: 100%;
 }
 
 .game-board__square svg {
+  width: calc(100% - 0.625rem);
+  height: calc(100% - 0.625rem);
   transition: all 0.5s;
   display: block;
   transform: scale(0.1);
   opacity: 0;
+  position: absolute;
+  top: 0.3125rem;
+  left: 0.3125rem;
 }
 
 .game-board__square.a svg {
@@ -176,4 +187,10 @@ body>svg {
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 0.2em;
+}
+
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
 }

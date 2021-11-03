@@ -43,8 +43,12 @@ h1 {
   margin: 10px 0;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  font-size: 64px;
+  font-size: 42px;
   color: var(--secondary);
+
+  @media screen and (min-width: 800px) {
+    font-size: 64px;
+  }
 }
 
 body > svg {
@@ -128,14 +132,25 @@ body > svg {
   }
   &__square {
     background-color: var(--primary);
-    aspect-ratio: 1;
-    padding: 5px;
+    position: relative;
+
+    &:after {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-bottom: 100%;
+    }
 
     svg {
+      width: calc(100% - 10px);
+      height: calc(100% - 10px);
       transition: all 0.5s;
       display: block;
       transform: scale(0.1);
       opacity: 0;
+      position: absolute;
+      top: 5px;
+      left: 5px;
     }
 
     &.a svg {
