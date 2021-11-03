@@ -20,7 +20,10 @@
       </header>
       <main>
         <div class="game">
-          <div>Player 1/Player2</div>
+          <div class="game__status">
+            <div class="active">Player 1</div>
+            <div>Player 2</div>
+          </div>
           <div class="game-board" id="board">
             <div class="game-board__grid">
               <div class="game-board__square"></div>
@@ -33,6 +36,10 @@
               <div class="game-board__square"></div>
               <div class="game-board__square"></div>
             </div>
+          </div>
+          <div class="game-result">
+            <span class="game-result__message">Player 1 Wins!</span>
+            <button>Replay</button>
           </div>
         </div>
       </main>

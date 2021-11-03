@@ -79,12 +79,40 @@ body > svg {
 }
 
 .game {
-  max-width: 1400px;
+  max-width: 500px;
   height: 100%;
   margin: auto;
   padding: 20px;
   display: flex;
   flex-direction: column;
+
+  &__status {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+
+    > div {
+      padding: 10px 30px;
+      background: var(--secondary);
+      color: var(--white);
+      text-transform: uppercase;
+      font-weight: 800;
+      transition: all 0.5s;
+      letter-spacing: 0.2em;
+      opacity: 0.5;
+      // border: 1px solid var(--primary);
+      &.active {
+        opacity: 1;
+        &:first-child {
+          background-color: var(--accent-1);
+        }
+
+        &:last-child {
+          background-color: var(--accent-2);
+        }
+      }
+    }
+  }
 }
 
 .game-board {
@@ -97,18 +125,11 @@ body > svg {
     // grid-template-rows: 1fr 1fr 1fr;
     grid-gap: 4px;
     background-color: var(--tertiary);
-    max-width: 500px;
-    margin: auto;
   }
   &__square {
-    //   background-color: var(--primary);
     background-color: var(--primary);
     aspect-ratio: 1;
     padding: 5px;
-
-    &:nth-child(2n) {
-      // background-color: var(--secondary);
-    }
 
     svg {
       transition: all 0.5s;

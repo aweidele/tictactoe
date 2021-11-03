@@ -74,12 +74,41 @@ body>svg {
 }
 
 .game {
-  max-width: 1400px;
+  max-width: 500px;
   height: 100%;
   margin: auto;
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
+}
+
+.game__status {
+  display: flex;
+  justify-content: space-around;
+  margin: 1.25rem 0;
+}
+
+.game__status>div {
+  padding: 0.625rem 1.875rem;
+  background: var(--secondary);
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: 800;
+  transition: all 0.5s;
+  letter-spacing: 0.2em;
+  opacity: 0.5;
+}
+
+.game__status>div.active {
+  opacity: 1;
+}
+
+.game__status>div.active:first-child {
+  background-color: var(--accent-1);
+}
+
+.game__status>div.active:last-child {
+  background-color: var(--accent-2);
 }
 
 .game-board {
@@ -93,8 +122,6 @@ body>svg {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 4px;
   background-color: var(--tertiary);
-  max-width: 500px;
-  margin: auto;
 }
 
 .game-board__square {
