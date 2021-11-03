@@ -1,4 +1,7 @@
 const squares = document.querySelectorAll(".game-board__square");
+const result = document.querySelector(".game-result");
+const resultMessage = document.querySelector(".game-result__message");
+
 const winningCombos = [
   [0, 1, 2],
   [3, 4, 5],
@@ -63,6 +66,10 @@ class Game {
 
   _endGame() {
     this.gameStatus = false;
+    result.classList.add("game-over");
+    resultMessage.textContent = `${
+      this.players[this.currentPlayer].label
+    } Wins!`;
     console.log("endgame");
   }
 

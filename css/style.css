@@ -142,3 +142,31 @@ body>svg {
 .game-board__square .icon-o {
   fill: var(--accent-2);
 }
+
+.game-result {
+  padding: 1.25rem 0;
+  text-align: center;
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.game-result.game-over {
+  opacity: 1;
+}
+
+.game-result__message {
+  font-size: 1.5rem;
+  color: var(--accent-2);
+  font-weight: 800;
+  display: block;
+  margin-bottom: 0.4em;
+}
+
+.game-result button {
+  background-color: var(--tertiary);
+  color: var(--white);
+  padding: 0.625rem 1.875rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
