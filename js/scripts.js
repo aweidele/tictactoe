@@ -100,22 +100,3 @@ class Game {
 }
 
 const game = new Game();
-//   const squares = document.querySelectorAll(".game-board__square");
-//   const players = [
-//     {
-//       label: "Player 1",
-//       moves: [],
-//     },
-//     {
-//       label: "Player 2",
-//       moves: [],
-//     },
-//   ];
-//   let currentPlayer = "x";
-
-//   squares.forEach((sq) => {
-//     sq.addEventListener("click", function (e) {
-//       this.innerHTML = `<svg class="icon-${currentPlayer}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150"><use href="#icon-${currentPlayer}" />`;
-//       currentPlayer = currentPlayer === "x" ? "o" : "x";
-//     });
-//   });

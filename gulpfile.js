@@ -72,3 +72,4 @@ gulp.task("watch", function () {
 });
 
 gulp.task("default", gulp.series("sass", "compress", "watch"));
+gulp.task("build", gulp.series("sass", "compress"));
