@@ -14,13 +14,6 @@ const winningCombos = [
   [2, 4, 6],
 ];
 
-// const test = [1, 0, 5, 2];
-// winningCombos.forEach((combo) => {
-//   console.log(combo, test);
-//   const found = combo.every((v) => test.includes(v));
-//   console.log(found);
-// });
-
 class Game {
   constructor() {
     this._initGame();
@@ -33,7 +26,6 @@ class Game {
   }
 
   _initGame() {
-    console.log("initgame");
     this.currentPlayer = "x";
     this.gameStatus = true;
     this.players = {
@@ -70,9 +62,12 @@ class Game {
       const found = combo.every((v) =>
         this.players[this.currentPlayer].moves.includes(v)
       );
-      console.log(found);
       if (found) {
-        return this._endGame();
+        return this._endGame(true);
+        break;
+      }
+      if (this.moves >= 9) {
+        return this._endGame(false);
         break;
       }
     }
@@ -80,20 +75,18 @@ class Game {
     this._changePlayer();
   }
 
-  _endGame() {
+  _endGame(winner) {
     this.gameStatus = false;
     result.classList.add("game-over");
-    resultMessage.textContent = `${
-      this.players[this.currentPlayer].label
-    } Wins!`;
-    console.log("endgame");
+    resultMessage.textContent = winner
+      ? `${this.players[this.currentPlayer].label} Wins!`
+      : `It's a draw!`;
   }
 
   _squareClickHandler(e) {
     if (!this.gameStatus) return;
 
     const sq = e.target.closest(".game-board__square");
-    console.log(sq);
     if (sq.dataset.value) return;
 
     sq.innerHTML = `<svg class="icon-${this.currentPlayer}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150"><use href="#icon-${this.currentPlayer}" />`;
@@ -107,7 +100,6 @@ class Game {
 }
 
 const game = new Game();
-console.log(game);
 //   const squares = document.querySelectorAll(".game-board__square");
 //   const players = [
 //     {
