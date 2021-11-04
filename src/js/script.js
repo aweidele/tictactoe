@@ -72,6 +72,7 @@ class Game {
       }
     }
     this.currentPlayer = this.currentPlayer === "x" ? "o" : "x";
+    this.moves++;
     this._changePlayer();
   }
 
@@ -93,7 +94,6 @@ class Game {
     setTimeout(() => sq.classList.add("a"), 50);
     sq.dataset.value = this.currentPlayer;
     this.players[this.currentPlayer].moves.push(Number(sq.dataset.sq));
-    this.moves++;
 
     this._determineWinner();
   }
