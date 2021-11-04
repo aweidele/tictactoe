@@ -1,3 +1,4 @@
+const board = document.querySelector(".game-board__grid");
 const squares = document.querySelectorAll(".game-board__square");
 const result = document.querySelector(".game-result");
 const resultMessage = document.querySelector(".game-result__message");
@@ -19,9 +20,9 @@ class Game {
     this._initGame();
     squares.forEach((sq, i) => {
       sq.dataset.sq = i;
-      sq.addEventListener("click", this._squareClickHandler.bind(this));
     });
 
+    board.addEventListener("click", this._squareClickHandler.bind(this));
     resetButton.addEventListener("click", this._initGame.bind(this));
   }
 
@@ -66,13 +67,13 @@ class Game {
         return this._endGame(true);
         break;
       }
-      if (this.moves >= 9) {
-        return this._endGame(false);
-        break;
-      }
     }
-    this.currentPlayer = this.currentPlayer === "x" ? "o" : "x";
+
     this.moves++;
+    console.log(this.moves);
+    if (this.moves >= 9) return this._endGame(false);
+
+    this.currentPlayer = this.currentPlayer === "x" ? "o" : "x";
     this._changePlayer();
   }
 
