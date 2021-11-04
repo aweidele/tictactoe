@@ -70,7 +70,6 @@ class Game {
     }
 
     this.moves++;
-    console.log(this.moves);
     if (this.moves >= 9) return this._endGame(false);
 
     this.currentPlayer = this.currentPlayer === "x" ? "o" : "x";
